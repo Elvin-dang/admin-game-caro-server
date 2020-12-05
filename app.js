@@ -12,8 +12,13 @@ const server = http.createServer(app);
 app.use(bodyParser.json());
 app.use(cors());
 
-// initiate project
-app.get('/', (req, res) => res.status(200).send('Test'));
+// Connect mongoDB
+mongoose.connect(process.env.DB_CONNECTION, 
+    { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false},
+    () => console.log('DB connected'));
+
+// Routes
+app.use('/api/admin', require('./routes/admin'));
 
 const port = process.env.PORT || 3000;
 server.listen(port, () => console.log(`Server run on port ${port}`));
