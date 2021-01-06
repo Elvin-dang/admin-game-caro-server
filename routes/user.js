@@ -15,6 +15,7 @@ router.post('/resetPassword', validateBody(schemas.resetPasswordSchema), passpor
 router.patch('/profile', passport.authenticate('jwt', { session: false }), UserController.profile);
 
 
+router.get('/topPlayers',  passport.authenticate('jwt', { session: false }), UserController.getTopPlayers);
 
 router.patch('/block/:id', passport.authenticate('jwt', { session: false }), UserController.blockAccount);
 router.patch('/active/:id', passport.authenticate('jwt', { session: false }), UserController.activeAccount);

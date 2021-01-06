@@ -34,5 +34,14 @@ module.exports = {
     },
     updateMove: async () => {
 
-    }
+    },
+    getOneGameById: async (req, res) => {
+        try{
+            const response = await Game.findById(req.params.id);
+            res.status(200).json(response);
+        }
+        catch(e){
+            res.status(400).json({ msg:"Failed in get that game: " + e });
+        }
+    },
 }

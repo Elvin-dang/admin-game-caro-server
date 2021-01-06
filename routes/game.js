@@ -9,4 +9,7 @@ const gameController = require('../controllers/game');
 router.post('/', passport.authenticate('jwt', { session: false }), gameController.newGame);
 router.get('/getAll',  passport.authenticate('jwt', { session: false }), gameController.getAll);
 
+//ntvinh
+router.get('/id:', passport.authenticate('jwt', { session: false }), gameController.getOneGameById);
+
 module.exports = router;
