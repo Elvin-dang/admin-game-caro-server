@@ -19,6 +19,8 @@ router.get('/topPlayers',  passport.authenticate('jwt', { session: false }), Use
 
 router.patch('/block/:id', passport.authenticate('jwt', { session: false }), UserController.blockAccount);
 router.patch('/active/:id', passport.authenticate('jwt', { session: false }), UserController.activeAccount);
+router.patch('/blockUndefine/:id', passport.authenticate('jwt', { session: false }), UserController.blockUndefineAccount);
+router.patch('/activeUndefine/:id', passport.authenticate('jwt', { session: false }), UserController.activeUndefineAccount);
 router.get('/getAll',  passport.authenticate('jwt', { session: false }), UserController.getAll);
 router.get('/:id', passport.authenticate('jwt', { session: false }), UserController.getUserById);
 

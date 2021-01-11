@@ -214,6 +214,30 @@ module.exports = {
             console.log(err);
         }
     },
+    activeUndefineAccount: async (req, res) => {
+        try {
+            const user = await User.findByIdAndUpdate(req.params.id, {
+                active: '1'
+            }, { new: true });
+
+            res.status(200).json({ result: true });
+        } catch(err) {
+            res.status(404).json({ result: false });
+            console.log(err);
+        }
+    },
+    blockUndefineAccount: async (req, res) => {
+        try {
+            const user = await User.findByIdAndUpdate(req.params.id, {
+                active: '4'
+            }, { new: true });
+
+            res.status(200).json({ result: true });
+        } catch(err) {
+            res.status(404).json({ result: false });
+            console.log(err);
+        }
+    },
     getAll: async (req, res) => {
         try{
             const existUser = await User.find();
